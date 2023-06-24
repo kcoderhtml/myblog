@@ -1,21 +1,18 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import BlogPost from "../../layouts/BlogPost.astro";
+import { getStaticPaths, ContentPiece, Content } from "virtual:vrite";
 
-export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
-}
-type Props = CollectionEntry<'blog'>;
+export { getStaticPaths };
+type Props = ContentPiece;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const contentPiece = Astro.props;
 ---
 
-<BlogPost {...post.data}>
-	<h1>{post.data.title}</h1>
-	<Content />
+<BlogPost
+  title={contentPiece.title}
+  description={contentPiece.description || ""}
+  pubDate={contentPiece.date ? new Date(contentPiece.date) : new Date()}
+  heroImage={contentPiece.coverUrl}
+>
+  <Content contentPieceId={contentPiece.id} />
 </BlogPost>
