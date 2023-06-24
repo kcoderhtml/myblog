@@ -1,7 +1,7 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "strictNullChecks": true,
-    "types": ["@vrite/sdk/types", "astro/client"]
-  }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"strictNullChecks": true,
+		"types": ["@vrite/sdk/types", "astro/client"]
+	}
 }
