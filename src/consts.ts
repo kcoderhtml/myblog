@@ -3,3 +3,6 @@
 
 export const SITE_TITLE = 'Kieran Klukas';
 export const SITE_DESCRIPTION = 'Welcome to my corner of the internet!';
+
+export const BLOG_TITLE = 'Kieran\'s Blog';
+export const BLOG_DESCRIPTION = 'My ramblings on various topics I find interesting.';
