@@ -31,10 +31,9 @@ export const getReadingTime = async (id: string) => {
     });
 
     const rawText = rawTextTransformer(contentPiece.content);
-    const readingTimeResult = readingTime(rawText);
 
     return {
         content: contentPiece.content,
-        readingTime: readingTimeResult.text
+        readingTime: readingTime(rawText).text
     };
 };
