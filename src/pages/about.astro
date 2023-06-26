@@ -5,7 +5,7 @@ import { client } from "virtual:vrite";
 const profile = await client.profile.get();
 
 const title = "About";
-const description = "About your blog.";
+const description = "About me.";
 const permalink = `${Astro.site}about`;
 ---
 
@@ -19,24 +19,10 @@ const permalink = `${Astro.site}about`;
     <h1>About</h1>
     <figure class="about-image">
       <img
-        src="/assets/about-illustration.webp"
-        alt="Illustration of a notebook"
-        width="330"
+        src="/assets/profile-pic.webp"
+        alt="Headshot of Kieran Klukas"
+        width="430"
       />
-      <figcaption>
-        Illustration by
-        <a
-          href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6"
-          target="_blank"
-          rel="noopener">Icons 8</a
-        >
-        from
-        <a
-          href="https://icons8.com/illustrations"
-          target="_blank"
-          rel="noopener">Ouch!</a
-        >
-      </figcaption>
     </figure>
     <p>
       {profile.bio}
@@ -48,7 +34,7 @@ const permalink = `${Astro.site}about`;
   .about-image {
     float: right;
     margin: -3em -7em 2em 2em;
-    max-width: 300px;
+    max-width: 400px;
   }
 
   .about-image img {
