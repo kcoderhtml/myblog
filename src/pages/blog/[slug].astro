@@ -4,6 +4,7 @@ import Bio from "../../components/Bio.astro";
 
 import { getStaticPaths, ContentPiece, Content } from "virtual:vrite";
 
+import { getReadingTime } from "../../utils/readingtime";
 export { getStaticPaths };
 type Props = ContentPiece;
 
@@ -13,7 +14,7 @@ const date = new Date(contentPiece.date).toLocaleDateString("en-US", {
   month: "long",
   day: "numeric",
 });
-const readingTime = "0";
+const { content, readingTime } = await getReadingTime(contentPiece.id);
 const permalink = `${Astro.site}blog/${contentPiece.slug}`;
 ---
 
@@ -30,7 +31,7 @@ const permalink = `${Astro.site}blog/${contentPiece.slug}`;
   </header>
   <div class="container">
     <article class="content">
-      <Content contentPieceId={contentPiece.id} />
+      <Content content={content}/>
     </article>
     <hr />
     <Bio />

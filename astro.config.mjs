@@ -36,4 +36,7 @@ export default defineConfig({
 			],
 		],
 	},
+	vite: {
+		optimizeDeps: { exclude: ["fsevents"] },
+	},
 });
