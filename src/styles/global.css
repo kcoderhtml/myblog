@@ -9,8 +9,8 @@
 
 :root.theme-dark {
   --background-body: #202122;
-  --text-main: #fff;
-  --text-secondary: #ccc;
+  --text-main: #ccc;
+  --text-secondary: #999999;
   --primary-color: #548e9b;
 }
 
