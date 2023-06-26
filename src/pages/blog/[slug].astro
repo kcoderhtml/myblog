@@ -1,31 +1,36 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Bio from '../../components/Bio.astro';
-import getPostData from '../../utils/getPostData';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Bio from "../../components/Bio.astro";
 
-export async function getStaticPaths() {
-  const posts = await Astro.glob('../../data/blog-posts/*.md');
-  return posts.map(p => ({
-    params: { slug: p.file.split('/').pop().split('.').shift() },
-    props: { post: p },
-  }));
-}
+import { getStaticPaths, ContentPiece, Content } from "virtual:vrite";
 
-const { Content, frontmatter } = Astro.props.post;
-const { title, description, publishDate } = frontmatter;
-const { slug, readingTime } = getPostData(Astro.props.post);
-const permalink = `${Astro.site.href}blog/${slug}`;
+export { getStaticPaths };
+type Props = ContentPiece;
+
+const contentPiece = Astro.props;
+const date = new Date(contentPiece.date).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const readingTime = "0";
+const permalink = `${Astro.site}blog/${contentPiece.slug}`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog">
+<BaseLayout
+  title={contentPiece.title}
+  description={contentPiece.description || ""}
+  permalink={permalink}
+  current="blog"
+>
   <header>
-    <p>{publishDate} ~ {readingTime}</p>
-    <h1>{title}</h1>
+    <p>{date} ~ {readingTime}</p>
+    <h1>{contentPiece.title}</h1>
     <hr />
   </header>
   <div class="container">
     <article class="content">
-      <Content />
+      <Content contentPieceId={contentPiece.id} />
     </article>
     <hr />
     <Bio />
