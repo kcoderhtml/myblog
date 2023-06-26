@@ -1,0 +1,32 @@
+---
+import { client } from "virtual:vrite";
+
+const profile = await client.profile.get();
+const url = `${Astro.site}`;
+---
+
+<div>
+  <img src="/assets/profile-pic.webp" alt="Headshot of Kieran Klukas" />
+  <p>
+    {profile.bio}
+  </p>
+</div>
+
+<style>
+  div {
+    align-items: center;
+    display: flex;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    display: block;
+    margin-right: 20px;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+</style>

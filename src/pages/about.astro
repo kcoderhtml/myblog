@@ -1,16 +1,104 @@
 ---
-import Layout from "../layouts/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { client } from "virtual:vrite";
 
 const profile = await client.profile.get();
+
+const title = "About";
+const description = "About me.";
+const permalink = `${Astro.site}about`;
 ---
 
-<Layout
-	title={profile.fullName || "About me"}
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date("May 23 2023")}
-	updatedDate={new Date("May 23 2023")}
-	heroImage="/placeholder-about.jpg"
+<BaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  current="about"
 >
-	<p>{profile.bio}</p>
-</Layout>
+  <div class="container">
+    <h1>About</h1>
+    <figure class="about-image">
+      <img
+        src="/assets/profile-pic.webp"
+        alt="Headshot of Kieran Klukas"
+        width="430"
+      />
+    </figure>
+    <div></div>
+    <p>
+      Welcome to my corner of the internet! My name is Kieran Klukas, and I'm
+      thrilled to have you here. As a 10th-grade homeschooler with a deep love
+      for technology, I'm constantly fascinated by the boundless possibilities
+      it brings. I proudly identify as a <a
+        href="https://linuxhandbook.com/homelab/">Homelaber</a
+      >, finding joy in tinkering with various technologies and exploring their
+      inner workings. From building and configuring systems to experimenting
+      with different software and hardware setups, I'm always on the lookout for
+      new ways to expand my technical expertise.
+    </p>
+    <p>
+      Linux holds a special place in my heart, and I consider myself a
+      passionate Linux enthusiast and professional <a
+        href="https://www.urbandictionary.com/define.php?term=distrohopper"
+        >distrohopper</a
+      >. The freedom, flexibility, and vibrant open-source community surrounding
+      Linux have captivated me, driving my exploration of different
+      distributions and expanding my knowledge of this powerful operating
+      system.
+    </p>
+    <p>
+      One of my core passions is <a href="https://www.eff.org/issues/privacy"
+        >Digital Privacy</a
+      >. I firmly believe in the importance of protecting our personal
+      information in this digital age. I strive to stay informed about privacy
+      best practices and advocate for online security and data protection. It's
+      a cause that fuels my desire to create awareness and empower others to
+      safeguard their digital lives.
+    </p>
+    <p>
+      When I'm not diving into code or exploring the depths of technology, I
+      take to the skies as an FPV (<a
+        href="https://en.wikipedia.org/wiki/First-person_view_(radio_control)#Multi-rotor"
+        >First-Person View</a
+      >) quadcopter pilot. The thrill of soaring through the air and capturing
+      breathtaking footage from unique perspectives is an experience like no
+      other. I aim to capture the pure joy and awe-inspiring moments through the
+      lens of my drone, sharing the beauty of the world from above.
+    </p>
+    <p>
+      I share my love of FPV flying through my YouTube channel, <a
+        href="https://youtube.com/@thefpvwanderer">The FPV Wanderer</a
+      >. Through my videos, I strive to convey the depth and pure joy of the
+      experience inspiring others to embrace their own sense of adventure and
+      curiosity. It's a creative outlet that allows me to merge my love for
+      technology, visual storytelling, and exploration.
+    </p>
+    <p>
+      In addition to my technological pursuits, I'm also learning the violin.
+      The enchanting melodies that emanate from this instrument captivate me and
+      offer a different kind of artistic expression. I'm also an avid reader and
+      enjoy a wide variety of genres, but especially science fiction and
+      fantasy.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-image {
+    float: right;
+    margin: -3em -7em 2em 2em;
+    max-width: 400px;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 1020px) {
+    .about-image {
+      float: none;
+      margin: 0 auto 2em;
+    }
+  }
+</style>
