@@ -1,17 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { BLOG_DESCRIPTION, BLOG_TITLE } from "../../consts";
 
 import { getContentPieces } from "virtual:vrite";
 const posts = await getContentPieces({ limit: "all" });
 
-const title = "Blog";
-const description = "Latest articles.";
 const permalink = `${Astro.site}blog`;
 ---
 
 <BaseLayout
-  title={title}
-  description={description}
+  title={BLOG_TITLE}
+  description={BLOG_DESCRIPTION}
   permalink={permalink}
   current="blog"
 >
