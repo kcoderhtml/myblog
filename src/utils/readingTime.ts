@@ -3,14 +3,8 @@ import { createContentTransformer } from "@vrite/sdk/transformers";
 import readingTime from "reading-time";
 import { loadEnv } from "vite";
 
-const { VRITE_ACCESS_TOKEN } = loadEnv(
-    import.meta.env.MODE,
-    `${process.cwd()}/../../.env`,
-    ""
-);
-
 const client = createClient({
-    token: VRITE_ACCESS_TOKEN
+    token: import.meta.env.VRITE_ACCESS_TOKEN
 });
 
 export module ReadingTime {
