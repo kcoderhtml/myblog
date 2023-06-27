@@ -49,4 +49,4 @@ Check out [Astro's documentation](https://docs.astro.build) or jump into their [
 This theme is heavily based off of the [Astro Blog Template](https://github.com/Charca/astro-blog-template) by [Maxi Ferreira (@charca)](https://twitter.com/charca).
 
 ## License
-This repositories code is licensed with the GNU AFFERO GENERAL PUBLIC LICENSE you can view it (here)[LICENSE.md]
+This repositories code is licensed with the GNU AFFERO GENERAL PUBLIC LICENSE you can view it [here](LICENSE.md)
