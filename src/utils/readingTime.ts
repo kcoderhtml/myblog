@@ -9,8 +9,6 @@ const { VRITE_ACCESS_TOKEN } = loadEnv(
 	""
 );
 
-// const VRITE_ACCESS_TOKEN="axLALpQOENP-j8IR_C4Ge:4rqnaR8ff2ksS_HjibATF"
-
 const client = createClient({
     token: VRITE_ACCESS_TOKEN
 });
