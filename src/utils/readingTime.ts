@@ -4,34 +4,36 @@ import readingTime from "reading-time";
 import { loadEnv } from "vite";
 
 const { VRITE_ACCESS_TOKEN } = loadEnv(
-	import.meta.env.MODE,
-	`${process.cwd()}/../../.env`,
-	""
+    import.meta.env.MODE,
+    `${process.cwd()}/../../.env`,
+    ""
 );
 
 const client = createClient({
     token: VRITE_ACCESS_TOKEN
 });
 
-export const getReadingTime = async (id: string) => {
-    const contentPiece = await client.contentPieces.get({ id: id, content: true });
-    const rawTextTransformer = createContentTransformer({
-        applyInlineFormatting(type, attrs, content) {
-            return content;
-        },
-        transformNode(type, attrs, content) {
-            if (type === "codeBlock") {
-                return "";
+export module ReadingTime {
+    export const getReadingTime = async (id: string) => {
+        const contentPiece = await client.contentPieces.get({ id: id, content: true });
+        const rawTextTransformer = createContentTransformer({
+            applyInlineFormatting(type, attrs, content) {
+                return content;
+            },
+            transformNode(type, attrs, content) {
+                if (type === "codeBlock") {
+                    return "";
+                }
+
+                return content;
             }
+        });
 
-            return content;
-        }
-    });
+        const rawText = rawTextTransformer(contentPiece.content);
 
-    const rawText = rawTextTransformer(contentPiece.content);
-
-    return {
-        content: contentPiece.content,
-        readingTime: readingTime(rawText).text
+        return {
+            content: contentPiece.content,
+            readingTime: readingTime(rawText).text
+        };
     };
-};
+}
