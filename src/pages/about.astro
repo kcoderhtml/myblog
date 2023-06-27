@@ -1,17 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { client } from "virtual:vrite";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-const profile = await client.profile.get();
-
-const title = "About";
-const description = "About me.";
+const title = SITE_TITLE + " - About";
 const permalink = `${Astro.site}about`;
 ---
 
 <BaseLayout
   title={title}
-  description={description}
+  description={SITE_DESCRIPTION}
   permalink={permalink}
   current="about"
 >
