@@ -33,6 +33,7 @@ const permalink = `${Astro.site}blog/${contentPiece.slug}`;
   </header>
   <div class="container">
     <article class="content">
+      <img src={contentPiece.coverUrl} alt="">
       <Content content={content} />
     </article>
     <hr />
