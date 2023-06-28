@@ -12,7 +12,7 @@ const { VRITE_ACCESS_TOKEN, VRITE_CONTENT_GROUP_ID } = loadEnv(
 );
 
 export default defineConfig({
-	site: "https://master--funny-empanada-9407a1.netlify.app/",
+	site: "https://kieranklukas.com/",
 	integrations: [
 		mdx(),
 		svelte(),
