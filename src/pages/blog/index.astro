@@ -21,11 +21,14 @@ const permalink = `${Astro.site}blog`;
       posts.map((post, index) => {
         const postdescription = post.description.replace(/<\/?p>/g, "");
         const href = `/blog/${post.slug}`;
-        const date = new Date(post.date).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
+        let date = ""
+        if (Date.parse(post.date)) {
+          date = "— " + new Date(post.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        };
         return (
           <div>
             {index !== 0 && <hr />}
@@ -35,7 +38,7 @@ const permalink = `${Astro.site}blog`;
               </h2>
               <p>{postdescription}</p>
               <div class="post-item-footer">
-                <span class="post-item-date">— {date}</span>
+                <span class="post-item-date">{date}</span>
               </div>
             </div>
           </div>
