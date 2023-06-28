@@ -2,8 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
-import { PortfolioItems } from "../../utils/portfolioItems";
-const content = await PortfolioItems.getPortfolioItems();
+import { getPortfolioItems } from "../../utils/portfolioItems";
+const content = await getPortfolioItems();
 const project = content.contentPieces;
 
 const title = SITE_TITLE + " - Portfolio";
@@ -32,7 +32,6 @@ const permalink = `${Astro.site}blog`;
         };
         return (
             <div class="project-card">
-              <div class="project-card-overlay"></div>
               <img
                 src={project.coverUrl}
                 alt={project.title}
@@ -55,7 +54,7 @@ const permalink = `${Astro.site}blog`;
 .project-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     justify-content: center;
     align-items: center;
   }
@@ -66,44 +65,24 @@ const permalink = `${Astro.site}blog`;
     border-color: var(--border-card);
     border-radius: 0.5rem;
     border: var(--border-card) solid 10px);
-    box-shadow: 0 0.25rem 0.5rem rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0.25rem 0.5rem var(--card-dropShadow);
     padding: 1rem;
     margin-bottom: 1rem;
     transition: box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
 
   .project-card:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem var(--card-dropShadow-hover);
+    transform: scale(1.05);
   }
-
-  .project-card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background-color: rgba(255, 255, 255, 0.5); */
-    backdrop-filter: blur(0.3rem);
-    z-index: 1;
-    transition: backdrop-filter 0.2s ease-in-out;
-    /* transition: background-color 0.2s ease-in-out; */
-  }
-
-  .project-card-overlay:hover {
-    backdrop-filter: blur(0rem);
-    /* background-color: rgba(255, 255, 255, 0.4); */
-  }
-
   .project-card h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     margin: 0;
     text-align: center;
     z-index: 3;
     text-overflow: ellipsis;
     overflow: hidden;
+    z-index: 2;
   }
   .project-card img {
     position: relative;
