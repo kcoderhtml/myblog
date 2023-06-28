@@ -2,13 +2,16 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Bio from "../../components/Bio.astro";
 
-import { getStaticPaths, ContentPiece, Content } from "virtual:vrite";
+import { ContentPiece, Content } from "virtual:vrite";
+import { getStaticPaths } from "../../utils/portfolioItems";
 
 import { ReadingTime } from "../../utils/readingTime";
-export { getStaticPaths };
 type Props = ContentPiece;
 
 const contentPiece = Astro.props;
+
+export { getStaticPaths };
+
 let date = "";
 if (Date.parse(contentPiece.date)) {
   date =
@@ -28,7 +31,7 @@ const permalink = `${Astro.site}blog/${contentPiece.slug}`;
   title={contentPiece.title}
   description={contentPiece.description || ""}
   permalink={permalink}
-  current="blog"
+  current="portfolio"
 >
   <header>
     <p>{date} {readingTime}</p>

@@ -2,20 +2,24 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
+const title = SITE_TITLE + " - Home";
+
 const permalink = Astro.site.href;
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} permalink={permalink}>
+<BaseLayout title={title} description={SITE_DESCRIPTION} permalink={permalink}>
   <div class="home-container">
     <div class="home-copy">
       <h1>Welcome to my portfolio and blog!</h1>
       <p>
         Welcome to my corner of the internet! My name is Kieran Klukas, and I'm
         glad you are here. I'm a 10th-grade homeschooler in love with technology
-        and the endless possibilities it brings. 
+        and the endless possibilities it brings.
       </p>
       <p>
-        I built this website and blog as a learning experience to learn about new technologies and to share my thoughts and ideas with the world. I hope you enjoy your visit!
+        I built this website and blog as a learning experience to learn about
+        new technologies and to share my thoughts and ideas with the world. I
+        hope you enjoy your visit!
       </p>
     </div>
 
