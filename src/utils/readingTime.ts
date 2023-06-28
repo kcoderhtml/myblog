@@ -1,7 +1,6 @@
 import { createClient } from "@vrite/sdk/api";
 import { createContentTransformer } from "@vrite/sdk/transformers";
 import readingTime from "reading-time";
-import { loadEnv } from "vite";
 
 const client = createClient({
     token: import.meta.env.VRITE_ACCESS_TOKEN
