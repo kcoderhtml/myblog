@@ -19,7 +19,7 @@ const permalink = `${Astro.site}blog`;
     <h1>Blog</h1>
     {
       posts.map((post, index) => {
-        const postdescription = post.description.replace(/<\/?p>/g, "");
+        const postdescription = post.description ? post.description.replace(/<\/?p>/g, "") : "";
         const href = `/blog/${post.slug}`;
         let date = ""
         if (Date.parse(post.date)) {
