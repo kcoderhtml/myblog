@@ -14,14 +14,14 @@ const permalink = `${Astro.site}about`;
 >
 	<div class="container">
 		<h1>About</h1>
-		<figure class="about-image">
+		<picture class="about-image">
 			<img
 				src="/assets/profile-pic.webp"
 				alt="Headshot of Kieran Klukas"
 				width="430"
 			/>
 			<figcaption>Kieran x Stable Diffusion</figcaption>
-		</figure>
+		</picture>
 		<div></div>
 		<p>
 			Welcome to my corner of the internet! My name is Kieran Klukas, and I'm
@@ -66,10 +66,11 @@ const permalink = `${Astro.site}about`;
 
 	.about-image img {
 		border-radius: 8px;
-		margin-bottom: 1.5em;
+		margin-bottom: 0.5em;
 	}
 
 	.about-image figcaption {
+		font-size: 0.9em;
 		text-align: center;
 		font-style: italic;
 	}
