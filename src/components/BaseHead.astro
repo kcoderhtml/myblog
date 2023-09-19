@@ -1,6 +1,7 @@
 ---
 import '../styles/fonts.css'
 import '../styles/global.css'
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
   title: string;
@@ -58,3 +59,5 @@ const socialUrl = Astro.site.href + 'assets/social.png'
 </script>
 
 <script defer data-domain="kieranklukas.com" src="https://nexus.kieranklukas.com/js/script.outbound-links.file-downloads.js"></script>
+
+<ViewTransitions />

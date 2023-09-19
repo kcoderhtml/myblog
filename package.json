@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^1.3.3",
     "@astrojs/svelte": "^3.0.0",
     "@vrite/sdk": "^2023.7.13-beta",
-    "astro": "^2.7.0",
+    "astro": "^2.9.0",
     "reading-time": "^1.5.0"
   }
 }

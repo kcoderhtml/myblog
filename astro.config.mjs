@@ -30,4 +30,7 @@ export default defineConfig({
 	vite: {
 		optimizeDeps: { exclude: ["fsevents"] },
 	},
+	experimental: {
+		viewTransitions: true,
+	},
 });
