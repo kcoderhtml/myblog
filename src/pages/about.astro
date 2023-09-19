@@ -20,6 +20,7 @@ const permalink = `${Astro.site}about`;
 				alt="Headshot of Kieran Klukas"
 				width="430"
 			/>
+			<figcaption>Kieran x Stable Diffusion</figcaption>
 		</figure>
 		<div></div>
 		<p>
@@ -66,6 +67,11 @@ const permalink = `${Astro.site}about`;
 	.about-image img {
 		border-radius: 8px;
 		margin-bottom: 1.5em;
+	}
+
+	.about-image figcaption {
+		text-align: center;
+		font-style: italic;
 	}
 
 	@media (max-width: 1020px) {
