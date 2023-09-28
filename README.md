@@ -1,4 +1,4 @@
-# The [Blog](https://kieranklukas.com) of Kieran Klukas
+# The [Blog](https://kieranklukas.com) of Kieran Klukas. Powered by Astro
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a6f714aa-10c4-443a-8b98-c9d687227961/deploy-status)](https://app.netlify.com/sites/funny-empanada-9407a1/deploys)
 
