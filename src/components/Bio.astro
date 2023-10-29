@@ -6,7 +6,7 @@ const url = `${Astro.site}`;
 ---
 
 <div>
-  <img src="/assets/profile-pic.webp" alt="Headshot of Kieran Klukas" />
+  <img src="/assets/profile-pic.webp" alt="Headshot of Kieran Klukas" class="bio-img"/>
   <p>
     {profile.bio}
   </p>
@@ -18,7 +18,7 @@ const url = `${Astro.site}`;
     display: flex;
   }
 
-  img {
+  .bio-img {
     width: 100px;
     height: 100px;
     border-radius: 100px;
