@@ -18,6 +18,6 @@
 # Dev should be set under [context.dev.environment] instead.
 [dev]
   command = "bun run dev"
-  port = 3000
+  port = 8888
   publish = "dist"
 
