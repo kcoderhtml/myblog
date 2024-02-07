@@ -1,5 +1,4 @@
 import { createClient } from "@vrite/sdk/api";
-import dotenv from "dotenv";
 import { getTaggedPosts } from "./scrappy";
 import OpenAI from "openai";
 
@@ -7,10 +6,8 @@ import OpenAI from "openai";
 // Config
 // ----------------
 
-dotenv.config();
-
 const vrite = createClient({
-  token: process.env.VRITE_ACCESS_TOKEN || "",
+  token: process.env.VRITE_SHIPPER_TOKEN || "",
 });
 
 const openai = new OpenAI({
@@ -99,8 +96,9 @@ export async function syncPosts() {
 
     // add images to the description with markdown syntax for the images in the attachments ommiting the first one
     const body =
+      `<img src="` + post.attachments[0] + `" alt="attachment" />` +
       post.text +
-      "\n\n" +
+      "" +
       post.attachments
         .slice(1)
         .map(

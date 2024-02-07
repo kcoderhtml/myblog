@@ -1,8 +1,4 @@
 import { createClient } from "@vrite/sdk/api";
-import dotenv from "dotenv";
-
-
-dotenv.config();
 
 const vrite = createClient({
   token: process.env.VRITE_ACCESS_TOKEN || '',
