@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",  
+    "shipper": "bun run utils/index.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
@@ -17,6 +18,8 @@
     "@astrojs/svelte": "^3.0.0",
     "@vrite/sdk": "^2023.7.13-beta",
     "astro": "^2.9.0",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "openai": "^4.26.0",
+    "dotenv": "^16.4.1"
   }
 }
