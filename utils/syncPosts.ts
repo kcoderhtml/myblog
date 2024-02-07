@@ -68,6 +68,7 @@ export async function syncPosts() {
   });
 
   let contentPieces: any[] = [];
+  newPosts.reverse();
 
   let counter = 0;
   for (const post of newPosts) {
