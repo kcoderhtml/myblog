@@ -14,7 +14,7 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/netlify": "^2.6.0",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/svelte": "^3.0.0",
     "@vrite/sdk": "^2023.7.13-beta",
     "astro": "^2.9.0",
