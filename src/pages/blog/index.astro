@@ -18,21 +18,13 @@ const permalink = `${Astro.site}blog`;
 		<h1>Blog</h1>
 		{
 			posts.map((post: any, index: number) => {
-				const postdescription = post.description
-					? post.description.replace(/<\/?p>/g, "")
+				const postdescription = post.frontmatter.description
+					? post.frontmatter.description.replace(/<\/?p>/g, "")
 					: "";
 				const href = `/blog/${post.frontmatter.slug}`;
 				const title = (post.frontmatter.title as string).replaceAll("\\", "");
-				let date = "";
-				if (Date.parse(post.date)) {
-					date =
-						"— " +
-						new Date(post.date).toLocaleDateString("en-US", {
-							year: "numeric",
-							month: "long",
-							day: "numeric",
-						});
-				}
+				const date = post.frontmatter.date;
+
 				return (
 					<div>
 						{index !== 0 && <hr />}
