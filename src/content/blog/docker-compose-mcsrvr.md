@@ -1,5 +1,6 @@
 ---
 title: Docker Compose Minecraft Server setup.
+description: This guide will show you how to set up a Minecraft server on Ubuntu with Docker Compose. We'll install Docker Compose, configure the server with a YAML file (think of it as a recipe), and create an environment file for server details. Finally, we'll start the server with a single command. Get ready to play Minecraft with your friends on your own server!   ░
 slug: docker-compose-mcsrvr
 date: 2023-07-08
 ---

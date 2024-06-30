@@ -1,6 +1,6 @@
 ---
 title: Garmin Vivoactive 4 with Home Assistant
-description:
+description: I wanted to control my smart home from my Garmin Vivoactive 4 but there wasn't a direct way. I found an app called APICall that lets my watch call webhooks. Home Assistant worked better than the Google Assistant integration I originally planned, and I was able to set it up in under 10 minutes using Docker. Now I can control things like Spotify playback with my watch using APICall and Home Assistant!
 slug: garmin-vivoactive-homeassistant
 date: 2023-08-04
 ---

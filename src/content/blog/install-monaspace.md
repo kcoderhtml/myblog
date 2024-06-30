@@ -1,5 +1,6 @@
 ---
 title: Monaspace VS-Code install
+description: Want to use the cool Monaspace font with fancy ligatures in VS Code? I got you! This guide walks you through downloading the font, configuring VS Code with a custom CSS file, and even includes some tips for finding the right class names for different VS Code elements. Enjoy your beautiful new coding setup!
 slug: monaspace-vs-code-install
 date: 2023-11-10
 ---

@@ -1,5 +1,6 @@
 ---
 title: Install TrueNAS Core on Proxmox
+description: In this guide, I walked you through installing TrueNAS Core on a Proxmox virtual machine. Even though I discovered a potential downside to this setup later, I decided to include the instructions in case you're okay with it. We went through downloading the TrueNAS ISO, creating the VM on Proxmox, passing through the physical drives, and finally booting up TrueNAS. I also included the resources that inspired me to make this guide.
 slug: install-truenas-core-proxmox
 date: 2023-07-10
 ---
