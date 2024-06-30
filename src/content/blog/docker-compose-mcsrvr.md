@@ -1,7 +1,7 @@
 ---
 title: Docker Compose Minecraft Server setup.
 slug: docker-compose-mcsrvr
-date: July 8, 2023
+date: 2023-07-08
 ---
 
 # Docker Compose Minecraft Server setup.

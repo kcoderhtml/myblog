@@ -2,7 +2,7 @@
 title: Censorship or Protection?
 description: Analyzing the Implications of Child Online Safety Legislation
 slug: censorship-or-protection
-date: November 1, 2023
+date: 2023-11-01
 ---
 
 # Censorship or Protection? Analyzing the Implications of Child Online Safety Legislation

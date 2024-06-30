@@ -1,7 +1,7 @@
 ---
 title: Install TrueNAS Core on Proxmox
 slug: install-truenas-core-proxmox
-date: July 10, 2023
+date: 2023-07-10
 ---
 
 # Install TrueNAS Core on Proxmox

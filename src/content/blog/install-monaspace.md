@@ -1,7 +1,7 @@
 ---
 title: Monaspace VS-Code install
 slug: monaspace-vs-code-install
-date: November 10, 2023
+date: 2023-11-10
 ---
 
 # Monaspace VS-Code install

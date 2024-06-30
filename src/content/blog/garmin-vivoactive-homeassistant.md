@@ -2,7 +2,7 @@
 title: Garmin Vivoactive 4 with Home Assistant
 description: 
 slug: garmin-vivoactive-homeassistant
-date: August 4, 2023
+date: 2023-08-04
 ---
 
 # Garmin Vivoactive 4 with Home Assistant
