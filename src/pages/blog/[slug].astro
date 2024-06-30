@@ -36,8 +36,8 @@ const permalink = `${Astro.site}blog/${contentPiece.slug}`;
 ---
 
 <BaseLayout
-	title={contentPiece.title}
-	description={contentPiece.description || ""}
+	title={contentPiece.post.frontmatter.title}
+	description={contentPiece.post.frontmatter.description || ""}
 	permalink={permalink}
 	current="blog"
 >
