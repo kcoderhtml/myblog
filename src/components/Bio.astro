@@ -1,32 +1,31 @@
----
-import { client } from "virtual:vrite";
-
-const profile = await client.profile.get();
-const url = `${Astro.site}`;
----
-
 <div>
-  <img src="/assets/profile-pic.webp" alt="Headshot of Kieran Klukas" class="bio-img"/>
-  <p>
-    {profile.bio}
-  </p>
+	<img
+		src="/assets/profile-pic.webp"
+		alt="Headshot of Kieran Klukas"
+		class="bio-img"
+	/>
+	<p>
+		Kieran Klukas —🏠 Homeschooled 10th grader | 💻 Homelaber | 🐧 Linux
+		Enthusiast | 🔒 Privacy Nerd | 🚁 FPV Pilot | 🌐 Internet Aficionado | 🌍
+		Open Source Enthusiast | 🎻 Violinist | 📚 Bookworm
+	</p>
 </div>
 
 <style>
-  div {
-    align-items: center;
-    display: flex;
-  }
+	div {
+		align-items: center;
+		display: flex;
+	}
 
-  .bio-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    display: block;
-    margin-right: 20px;
-  }
+	.bio-img {
+		width: 100px;
+		height: 100px;
+		border-radius: 100px;
+		display: block;
+		margin-right: 20px;
+	}
 
-  p {
-    font-size: 1.125rem;
-  }
+	p {
+		font-size: 1.125rem;
+	}
 </style>
