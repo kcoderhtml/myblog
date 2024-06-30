@@ -2,7 +2,11 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
-const posts = await Astro.glob("../../content/**/*.md");
+const posts = (await Astro.glob("../../content/**/*.md")).sort(
+	(a, b) =>
+		new Date(b.frontmatter.date).valueOf() -
+		new Date(a.frontmatter.date).valueOf()
+);
 
 const title = SITE_TITLE + " - Blog";
 const permalink = `${Astro.site}blog`;
@@ -23,7 +27,14 @@ const permalink = `${Astro.site}blog`;
 					: "";
 				const href = `/blog/${post.frontmatter.slug}`;
 				const title = (post.frontmatter.title as string).replaceAll("\\", "");
-				const date = post.frontmatter.date;
+				const date = new Date(post.frontmatter.date).toLocaleDateString(
+					"en-US",
+					{
+						year: "numeric",
+						month: "long",
+						day: "numeric",
+					}
+				);
 
 				return (
 					<div>
