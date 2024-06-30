@@ -51,12 +51,12 @@ const permalink = `${Astro.site}blog/${contentPiece.slug}`;
 			<Content />
 		</article>
 		<hr />
-		<!-- <script defer src="https://commentio.kieranklukas.com/js/commento.js" -->
-		>
+		<script defer src="https://commentio.kieranklukas.com/js/commento.js"
+		></script>
+		<div id="commento"></div>
+		<hr />
+		<Bio />
 	</div>
-	<div id="commento"></div>
-	<hr />
-	<Bio />
 </BaseLayout>
 
 <style>
