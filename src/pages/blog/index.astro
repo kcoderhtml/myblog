@@ -4,8 +4,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
 const posts = await Astro.glob("../../content/**/*.md");
 
-console.log(posts);
-
 const title = SITE_TITLE + " - Blog";
 const permalink = `${Astro.site}blog`;
 ---
