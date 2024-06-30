@@ -9,12 +9,12 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), svelte()],
   markdown: {
     shikiConfig: {
-      theme: "nord"
-    }
+      theme: "nord",
+    },
   },
   vite: {
     optimizeDeps: {
-      exclude: ["fsevents"]
-    }
-  }
+      exclude: ["fsevents"],
+    },
+  },
 });

@@ -15,11 +15,8 @@ date: 2023-07-10
 To install [TrueNAS Core](https://www.truenas.com/download-truenas-core/#) on [Proxmox](https://www.proxmox.com/en/proxmox-ve) you need three things:
 
 1.  A copy of [Proxmox](https://www.proxmox.com/en/proxmox-ve) — A complete, open-source server management platform for enterprise virtualization.
-    
 2.  A [TrueNAS CORE](https://www.truenas.com/download-truenas-core/#) ISO — World’s #1 NAS Operating System
-    
 3.  HDDs — You can use whatever you want, but I will be using three Barracuda ES 750GB drives
-    
 
 ## Install TrueNAS Core
 
@@ -36,6 +33,7 @@ Now finish creating the VM and click on the VM after it is created. Go to option
 ![undefined](https://assets.vrite.io/64974cb888e8beebeb2c925b/ImxOHWJNuRL3yiF12cQfe.png)
 
 Next, we need to pass through the physical drives to the VM. Open a terminal on the Proxmox server (use the built-in terminal or ssh in) and run the following command. Only run the part after the #.
+
 ```bash
 root@thespia:~# lsblk -o +MODEL,SERIAL
 
@@ -79,6 +77,7 @@ zd80                           230:80   0    32G  0 disk
 ```
 
 In my server `sda, sdb, and sdc` are my drives. I can tell because they have no partitions and are `698.6G`. Next, based on the serial numbers of the disks, find the `dev/disk/by-id` of the drive.
+
 ```bash
 root@thespia:~# ls /dev/disk/by-id/
 
@@ -114,11 +113,11 @@ wwn-0x50014ee2ab77b23f-part9
 
 In my case, the ID of the drives I want are `ata-ST3750330NS_9QK2GT8`, `ata-ST3750640NS_3QD0AYE0`, and `ata-ST3750640NS_3QD0BQ5G`.
 
-Now find your VM\_ID, mine is 102.
+Now find your VM_ID, mine is 102.
 
 ![undefined](https://assets.vrite.io/64974cb888e8beebeb2c925b/gwjgFbI5IrnJSTLTB0PeX.png)
 
-Run the following command, replacing the VM\_ID and DISK\_ID with yours.
+Run the following command, replacing the VM_ID and DISK_ID with yours.
 
 ```bash
 # qm set VM_ID -scsi1 /dev/disk/by-id/DISK_ID

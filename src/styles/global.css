@@ -7,7 +7,7 @@
   --secondary-color: #8da7d8;
   --accent-color: var(--primary-color);
   --font-family-serif: Merriweather, serif;
-  --font-family-sans: 'Fira Sans', sans-serif;
+  --font-family-sans: "Fira Sans", sans-serif;
 }
 
 :root.theme-dark {
@@ -110,13 +110,18 @@ a:hover {
 p a {
   text-decoration: none;
   box-shadow: inset 0 -0.12em 0 var(--accent-color);
-  -webkit-transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition:
+    box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out;
   padding: 0.1em 0.2em;
 }
 
 p a:hover {
-  box-shadow: inset 0 -1.5em 0 var(--accent-color),
+  box-shadow:
+    inset 0 -1.5em 0 var(--accent-color),
     0 0 1em var(--accent-color);
   border-radius: 0.2em;
   color: var(--text-opposite);
@@ -136,7 +141,7 @@ hr {
 }
 
 code {
-  font-family: 'SF Mono', menlo, inconsolata, monospace;
+  font-family: "SF Mono", menlo, inconsolata, monospace;
   font-size: calc(1em - 2px);
   color: #555;
   padding: 0.2em 0.4em;
@@ -223,12 +228,14 @@ td {
   background-color: var(--theme-code-inline-bg);
 }
 
-.theme-toggle>label:focus-within {
+.theme-toggle > label:focus-within {
   outline: 2px solid transparent;
-  box-shadow: 0 0 0 0.08em var(--theme-accent), 0 0 0 0.12em white;
+  box-shadow:
+    0 0 0 0.08em var(--theme-accent),
+    0 0 0 0.12em white;
 }
 
-.theme-toggle>label {
+.theme-toggle > label {
   color: var(--theme-code-inline-text);
   position: relative;
   display: flex;
@@ -243,7 +250,7 @@ td {
   opacity: 1;
 }
 
-input[name='theme-toggle'] {
+input[name="theme-toggle"] {
   position: absolute;
   opacity: 0;
   top: 0;

@@ -1,6 +1,6 @@
 ---
 title: Garmin Vivoactive 4 with Home Assistant
-description: 
+description:
 slug: garmin-vivoactive-homeassistant
 date: 2023-08-04
 ---
@@ -38,6 +38,7 @@ Now for the fun part. Download [APICall](https://apps.garmin.com/en-US/apps/ac9a
 If you are using Garmin Express, then you can access the app settings by selecting the 3 dots next to the app. You will have 36 possible API calls that you can enter.
 
 ![undefined](https://assets.vrite.io/64974cb888e8beebeb2c925b/-lSqNObL3TGNk0VQc8xOq.png)
+
 ```json
     {deviceName: "Broadcast",actionName: "Chores",url: "http://192.168.40.21:8123/api/webhook/Aere",method: "GET",headers:"{"Content-Type":"application/x-www-form-urlencoded"}"}
     {deviceName: "Spotify",actionName: "Discover Weekly",url: "http://192.168.40.21:8123/api/webhook/-djNd5aMidD6Q3w2jgYDu50ix",method: "GET",headers:"{"Content-Type":"application/x-www-form-urlencoded"}",actionIcon:40}
