@@ -1,7 +1,7 @@
 ---
 title: Censorship or Protection?
 description: Hey! Let's talk about protecting kids online without shutting down the internet. New laws aim for safety, but they might censor content and limit your privacy. Instead, let's empower parents to guide their kids online. Kids are online already, and age verification can be easily bypassed. Let's keep the internet open and give parents the tools to help their kids navigate it safely.
-slug: censorship-or-protection
+slug: analyzing-implications-of-online-safety-legislation
 date: 2023-11-01
 ---
 
