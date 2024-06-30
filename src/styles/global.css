@@ -223,12 +223,12 @@ td {
   background-color: var(--theme-code-inline-bg);
 }
 
-.theme-toggle > label:focus-within {
+.theme-toggle>label:focus-within {
   outline: 2px solid transparent;
   box-shadow: 0 0 0 0.08em var(--theme-accent), 0 0 0 0.12em white;
 }
 
-.theme-toggle > label {
+.theme-toggle>label {
   color: var(--theme-code-inline-text);
   position: relative;
   display: flex;
@@ -263,7 +263,7 @@ input[name='theme-toggle'] {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 575px) {
   body {
     font-size: 14px;
   }
@@ -272,6 +272,19 @@ input[name='theme-toggle'] {
   ul,
   ol {
     font-size: 1.2rem;
+    margin: 1em 0;
+  }
+}
+
+@media (max-width: 524px) {
+  body {
+    font-size: 12px;
+  }
+
+  p,
+  ul,
+  ol {
+    font-size: 1rem;
     margin: 1em 0;
   }
 }
