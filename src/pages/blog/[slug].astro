@@ -31,8 +31,6 @@ if (Date.parse(contentPiece.date)) {
 		}) + " ~";
 }
 
-console.log(contentPiece.post.rawContent());
-
 const readingTime = await getReadingTime(contentPiece.post.rawContent()).text;
 const permalink = `${Astro.site}blog/${contentPiece.slug}`;
 ---
