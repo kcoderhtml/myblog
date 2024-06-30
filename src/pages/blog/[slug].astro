@@ -2,69 +2,83 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Bio from "../../components/Bio.astro";
 
-import { getStaticPaths, ContentPiece, Content } from "virtual:vrite";
+import { default as getReadingTime } from "reading-time";
 
-import { ReadingTime } from "../../utils/readingTime";
-export { getStaticPaths };
-type Props = ContentPiece;
+export async function getStaticPaths() {
+	const posts = await Astro.glob("../../content/**/*.md");
+
+	return posts.map((post: any) => ({
+		params: {
+			slug: post.frontmatter.slug,
+		},
+		props: {
+			post,
+			date: post.frontmatter.date,
+		},
+	}));
+}
+
+const { Content } = Astro.props.post;
 
 const contentPiece = Astro.props;
 let date = "";
 if (Date.parse(contentPiece.date)) {
-  date =
-    new Date(contentPiece.date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }) + " ~";
+	date =
+		new Date(contentPiece.date).toLocaleDateString("en-US", {
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+		}) + " ~";
 }
-const { content, readingTime } = await ReadingTime.getReadingTime(
-  contentPiece.id
-);
+
+console.log(contentPiece.post.rawContent());
+
+const readingTime = await getReadingTime(contentPiece.post.rawContent()).text;
 const permalink = `${Astro.site}blog/${contentPiece.slug}`;
 ---
 
 <BaseLayout
-  title={contentPiece.title}
-  description={contentPiece.description || ""}
-  permalink={permalink}
-  current="blog"
+	title={contentPiece.title}
+	description={contentPiece.description || ""}
+	permalink={permalink}
+	current="blog"
 >
-  <header>
-    <p>{date} {readingTime}</p>
-    <h1>{contentPiece.title}</h1>
-    <hr />
-  </header>
-  <div class="container">
-    <article class="content">
-      <Content content={content} />
-    </article>
-    <hr />
-    <script defer src="https://commentio.kieranklukas.com/js/commento.js"></script>
-    <div id="commento"></div>
-    <hr />
-    <Bio />
-  </div>
+	<header>
+		<p>{date} {readingTime}</p>
+		<h1>{contentPiece.title}</h1>
+		<hr />
+	</header>
+	<div class="container">
+		<article class="content">
+			<Content />
+		</article>
+		<hr />
+		<!-- <script defer src="https://commentio.kieranklukas.com/js/commento.js" -->
+		>
+	</div>
+	<div id="commento"></div>
+	<hr />
+	<Bio />
 </BaseLayout>
 
 <style>
-  header {
-    text-align: center;
-  }
+	header {
+		text-align: center;
+	}
 
-  header h1 {
-    margin-bottom: 0.7em;
-  }
+	header h1 {
+		margin-bottom: 0.7em;
+	}
 
-  header p {
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    font-family: var(--font-family-sans);
-    font-weight: 600;
-  }
+	header p {
+		color: var(--text-secondary);
+		text-transform: uppercase;
+		font-family: var(--font-family-sans);
+		font-weight: 600;
+	}
 
-  header hr {
-    min-width: 100px;
-    width: 30%;
-  }
+	header hr {
+		min-width: 100px;
+		width: 30%;
+	}
 </style>

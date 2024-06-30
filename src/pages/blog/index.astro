@@ -2,67 +2,73 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
-import { getContentPieces } from "virtual:vrite";
-const posts = await getContentPieces({ limit: "all" });
+const posts = await Astro.glob("../../content/**/*.md");
+
+console.log(posts);
 
 const title = SITE_TITLE + " - Blog";
 const permalink = `${Astro.site}blog`;
 ---
 
 <BaseLayout
-  title={title}
-  description={SITE_DESCRIPTION}
-  permalink={permalink}
-  current="blog"
+	title={title}
+	description={SITE_DESCRIPTION}
+	permalink={permalink}
+	current="blog"
 >
-  <div class="container">
-    <h1>Blog</h1>
-    {
-      posts.map((post, index) => {
-        const postdescription = post.description ? post.description.replace(/<\/?p>/g, "") : "";
-        const href = `/blog/${post.slug}`;
-        let date = ""
-        if (Date.parse(post.date)) {
-          date = "— " + new Date(post.date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        };
-        return (
-          <div>
-            {index !== 0 && <hr />}
-            <div class="post-item">
-              <h2>
-                <a href={href}>{post.title}</a>
-              </h2>
-              <p>{postdescription}</p>
-              <div class="post-item-footer">
-                <span class="post-item-date">{date}</span>
-              </div>
-            </div>
-          </div>
-        );
-      })
-    }
-  </div>
+	<div class="container">
+		<h1>Blog</h1>
+		{
+			posts.map((post: any, index: number) => {
+				const postdescription = post.description
+					? post.description.replace(/<\/?p>/g, "")
+					: "";
+				const href = `/blog/${post.frontmatter.slug}`;
+				const title = (post.frontmatter.title as string).replaceAll("\\", "");
+				let date = "";
+				if (Date.parse(post.date)) {
+					date =
+						"— " +
+						new Date(post.date).toLocaleDateString("en-US", {
+							year: "numeric",
+							month: "long",
+							day: "numeric",
+						});
+				}
+				return (
+					<div>
+						{index !== 0 && <hr />}
+						<div class="post-item">
+							<h2>
+								<a href={href}>{title}</a>
+							</h2>
+							<p>{postdescription}</p>
+							<div class="post-item-footer">
+								<span class="post-item-date">{date}</span>
+							</div>
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
 </BaseLayout>
 
 <style>
-  h2,
-  .post-item-footer {
-    font-family: var(--font-family-sans);
-    font-weight: 700;
-  }
+	h2,
+	.post-item-footer {
+		font-family: var(--font-family-sans);
+		font-weight: 700;
+	}
 
-  .post-item-date {
-    color: var(--text-secondary);
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
-  }
+	.post-item-date {
+		color: var(--text-secondary);
+		text-align: left;
+		text-transform: uppercase;
+		margin-right: 16px;
+	}
 
-  hr {
-    margin: 60px auto;
-  }
+	hr {
+		margin: 60px auto;
+	}
 </style>
