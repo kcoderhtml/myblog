@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"forceConsistentCasingInFileNames": true,
 		"strictNullChecks": true,
-		"types": ["@vrite/sdk/types", "astro/client"],
+		"types": ["astro/client"],
 		// Enable top-level await, and other modern ESM features.
 		"target": "ESNext",
 		"module": "ESNext",
