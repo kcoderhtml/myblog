@@ -16,9 +16,7 @@
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/svelte": "^3.0.0",
-    "@vrite/sdk": "^2023.7.13-beta",
     "astro": "^2.9.0",
-    "reading-time": "^1.5.0",
-    "openai": "^4.26.0"
+    "reading-time": "^1.5.0"
   }
 }
