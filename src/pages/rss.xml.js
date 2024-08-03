@@ -9,13 +9,15 @@ export async function GET(context) {
     title: "Kieran's Blog",
     description: "A few musings and a smattering of tutorials",
     site: context.site,
-    items: blog.map((post) => {
-      return {
-        title: post.data.title,
-        description: post.data.description,
-        pubDate: post.data.date,
-        link: `/blog/${post.slug}`,
-      };
-    }),
+    items: blog
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+      .map((post) => {
+        return {
+          title: post.data.title,
+          description: post.data.description,
+          pubDate: post.data.date,
+          link: `/blog/${post.slug}`,
+        };
+      }),
   });
 }
