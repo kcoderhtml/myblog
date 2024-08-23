@@ -53,7 +53,7 @@ To install the Monaspace font on macOS with VS Code and enable multifont syntax 
 
       ```css
       /* Comment Class */
-      .mtk4 {
+      .mtk3 {
         font-family: "Monaspace Radon Var";
         font-weight: 500;
       }
@@ -84,3 +84,6 @@ To install the Monaspace font on macOS with VS Code and enable multifont syntax 
 That should be it! Hopefully you will have a beautiful custom font VS Code install.
 
 If you are looking for a good theme, I can highly recommend the [Catppuccin](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc) theme, as that is what I use myself. Be sure to check out [Monaspace’s webstite](https://monaspace.githubnext.com/) as it is a work of art. Happy Coding! 👩‍💻
+
+*Updated 2024-08-22: changed mtk4 to mtk3 on the feedback of [mutammim](https://github.com/mutammim)*
+
